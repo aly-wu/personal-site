@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milton Outage Compare Viewer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="topbar">
+        <div class="titleblock">
+          <h1>Hurricane Milton Outage Compare Viewer</h1>
+          <p>Microsoft Summer Research Program · Microsoft Confidential product · Public demo: Hurricane Milton only, with synthetic predictions; all other options are null.</p>
+        </div>
+        <div class="controls">
+          <label for="stormSelect">Event</label>
+          <select id="stormSelect"></select>
+        </div>
+        <div class="controls">
+          <label for="modelSourceSelect">Model source</label>
+          <select id="modelSourceSelect"></select>
+        </div>
+        <div class="controls">
+          <label for="architectureSelect">Model architecture</label>
+          <select id="architectureSelect"></select>
+        </div>
+        <div class="controls">
+          <label for="modeSelect">Prediction Mode</label>
+          <select id="modeSelect"></select>
+        </div>
+        <div class="legend" id="legend"></div>
+      </header>
+
+      <section class="maps-wrap">
+        <div class="map-pane">
+          <h2>Synthetic forecast preview</h2>
+          <div id="mapPred" class="map"></div>
+        </div>
+        <div class="map-pane">
+          <h2>Measured outages from EAGLE-I</h2>
+          <div id="mapReal" class="map"></div>
+        </div>
+      </section>
+
+      <section class="timeline">
+        <div class="timeline-row">
+          <label for="timeSlider">Timestep</label>
+          <div id="timeLabel">Loading...</div>
+        </div>
+        <input id="timeSlider" type="range" min="0" max="0" step="1" value="0" />
+        <div class="slider-dates">
+          <span id="startDateLabel">--</span>
+          <span id="endDateLabel">--</span>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js?v=synthetic-embedding-modes"></script>
+  </body>
+</html>
